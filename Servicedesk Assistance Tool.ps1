@@ -38,5 +38,9 @@ $Button.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Attribute_Changer.ps1").Content
 })
 
+$Button1.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Attribute_Changer.ps1").Content
+})
+
 
 $form.ShowDialog()
