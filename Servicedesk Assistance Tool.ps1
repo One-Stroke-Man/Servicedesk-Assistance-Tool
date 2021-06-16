@@ -33,6 +33,15 @@ $Button1.DialogResult = [System.Windows.Forms.DialogResult]::OK
 $form.AcceptButton = $Button1
 $form.Controls.Add($Button1)
 
+#Button Enable Account
+$Button2 = New-Object System.Windows.Forms.Button
+$Button2.Location = New-Object System.Drawing.Point(35,120)
+$Button2.Size = New-Object System.Drawing.Size(150,46)
+$Button2.Text = 'Enable AD Account'
+$Button2.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$form.AcceptButton = $Button2
+$form.Controls.Add($Button2)
+
 #Button Section
 $Button.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Attribute_Changer.ps1").Content
@@ -42,5 +51,8 @@ $Button1.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Unlock%20ADUser.ps1").Content
 })
 
+$Button2.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Enable%20AD%20User.ps1").Content
+})
 
 $form.ShowDialog()
