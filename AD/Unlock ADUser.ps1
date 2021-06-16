@@ -6,7 +6,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Name="Window"
-    Title="User Management"
+    Title="Unlock AD User"
     SizeToContent="WidthAndHeight" >
 
     <Grid x:Name="Grid">

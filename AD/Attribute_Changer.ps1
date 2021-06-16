@@ -7,7 +7,7 @@ Add-Type -AssemblyName PresentationFramework
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Name="Window"
-    Title="User Management"
+    Title="Attribute Changer"
     SizeToContent="WidthAndHeight" >
 
     <Grid x:Name="Grid">
