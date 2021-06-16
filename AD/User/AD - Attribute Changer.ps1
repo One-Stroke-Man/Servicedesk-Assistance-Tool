@@ -8,6 +8,7 @@ Add-Type -AssemblyName PresentationFramework
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     x:Name="Window"
     Title="Attribute Changer"
+    Background = "#1A1246"
     SizeToContent="WidthAndHeight" >
 
     <Grid x:Name="Grid">
@@ -40,6 +41,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Username"
             Grid.Column = "1"
             Grid.Row = "1"
+            Foreground = "#FFFFFF"
         />
 		<TextBox x:Name = "UserNameTextBox"
             Width = "200"
@@ -50,11 +52,14 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Search"
             Grid.Column = "3"
             Grid.Row = "2"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
         />
         <Label x:Name = "FirstNameLabel"
             Content = "First Name"
             Grid.Column = "1"
             Grid.Row = "4"
+            Foreground = "#FFFFFF"
 		/>
         <TextBox x:Name = "FirstNameTextBox"
             Width = "200"
@@ -65,6 +70,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Last Name"
             Grid.Column = "3"
             Grid.Row = "4"
+            Foreground = "#FFFFFF"
 		/>
         <TextBox x:Name = "LastNameTextBox"
             Width = "200"
@@ -75,6 +81,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Department"
             Grid.Column = "1"
             Grid.Row = "6"
+            Foreground = "#FFFFFF"
 		/>
         <TextBox x:Name = "DepartmentTextBox"
             Width = "200"
@@ -85,6 +92,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Company"
             Grid.Column = "3"
             Grid.Row = "6"
+            Foreground = "#FFFFFF"
         />
         <TextBox x:Name = "CompanyTextBox"
             Width = "200"
@@ -95,6 +103,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Email"
             Grid.Column = "1"
             Grid.Row = "8"
+            Foreground = "#FFFFFF"
         />
         <TextBox x:Name = "EmailTextBox"
             Width = "200"
@@ -105,6 +114,7 @@ Add-Type -AssemblyName PresentationFramework
             Content = "ProxyAddress"
             Grid.Column = "1"
             Grid.Row = "10"
+            Foreground = "#FFFFFF"
         />
         <TextBox x:Name = "ProxyTextBox"
             Width = "200"
@@ -115,6 +125,8 @@ Add-Type -AssemblyName PresentationFramework
             Content = "Set"
             Grid.Column = "3"
             Grid.Row = "13"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
         />
     </Grid>
 </Window>
