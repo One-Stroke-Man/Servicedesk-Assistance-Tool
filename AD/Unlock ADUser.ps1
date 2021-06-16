@@ -35,16 +35,6 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
       
-        <Label x:Name = "UsernameLabel"
-            Content = "Username"
-            Grid.Column = "1"
-            Grid.Row = "1"
-        />
-		<TextBox x:Name = "UserNameTextBox"
-            Width = "200"
-            Grid.Column = "1"
-            Grid.Row = "2"
-        />
         <Button x:Name = "SearchButton"
             Content = "Search"
             Grid.Column = "3"
@@ -73,7 +63,6 @@ $reader = (New-Object System.Xml.XmlNodeReader $xaml)
 $window = [Windows.Markup.XamlReader]::Load($reader)
 
 #Grab tho controls into variables
-$UserNameTB = $window.FindName("UserNameTextBox")
 $OutputTB = $window.FindName("OutputTextBox")
 $SearchButton = $window.FindName("SearchButton")
 
