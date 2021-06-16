@@ -53,19 +53,19 @@ $form.Controls.Add($Button3)
 
 #Button Section
 $Button.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Attribute_Changer.ps1").Content
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Attribute%20Changer.ps1").Content
 })
 
 $Button1.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Unlock%20ADUser.ps1").Content
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Unlock%20AD%20User.ps1").Content
 })
 
 $Button2.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Enable%20AD%20User.ps1").Content
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Enable%20AD%20User.ps1").Content
 })
 
 $Button3.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/Disable%20AD%20User.ps1").Content
+     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Disable%20AD%20User.ps1").Content
 })
 
 $form.ShowDialog()
