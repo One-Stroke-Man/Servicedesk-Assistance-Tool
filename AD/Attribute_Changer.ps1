@@ -1,4 +1,4 @@
-﻿#Add the WPF type
+﻿Add the WPF type
 Add-Type -AssemblyName PresentationFramework
 
 #region XAML
