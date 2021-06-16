@@ -12,42 +12,46 @@ $form.Size = New-Object System.Drawing.Size(600,400)
 $form.StartPosition = 'CenterScreen'
 $form.AutoSize = $True
 $form.AutoSizeMode = "GrowOnly"
-$form.BackColor = "White"
+$form.BackColor = "#1A1246"
 $form.Icon = $Icon
 
-#Button Attribute Changer
+#TBD
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location = New-Object System.Drawing.Point(35,30)
 $Button.Size = New-Object System.Drawing.Size(150,46)
-$Button.Text = 'Attribute Changer'
+$Button.Text = ''
 $Button.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$Button.BackColor = "#FFFFFF"
 $form.AcceptButton = $Button
 $form.Controls.Add($Button)
 
-#Button Unlock Account
+#TBD
 $Button1 = New-Object System.Windows.Forms.Button
 $Button1.Location = New-Object System.Drawing.Point(35,75)
 $Button1.Size = New-Object System.Drawing.Size(150,46)
-$Button1.Text = 'Unlock AD Account'
+$Button1.Text = ''
 $Button1.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$Button1.BackColor = "#FFFFFF"
 $form.AcceptButton = $Button1
 $form.Controls.Add($Button1)
 
-#Button Enable Account
+#TBD
 $Button2 = New-Object System.Windows.Forms.Button
 $Button2.Location = New-Object System.Drawing.Point(35,120)
 $Button2.Size = New-Object System.Drawing.Size(150,46)
-$Button2.Text = 'Enable AD Account'
+$Button2.Text = ''
 $Button2.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$Button2.BackColor = "#FFFFFF"
 $form.AcceptButton = $Button2
 $form.Controls.Add($Button2)
 
-#Button Enable Account
+#TBD
 $Button3 = New-Object System.Windows.Forms.Button
 $Button3.Location = New-Object System.Drawing.Point(35,165)
 $Button3.Size = New-Object System.Drawing.Size(150,46)
-$Button3.Text = 'Disable AD Account'
+$Button3.Text = ''
 $Button3.DialogResult = [System.Windows.Forms.DialogResult]::OK
+$Button3.BackColor = "#FFFFFF"
 $form.AcceptButton = $Button3
 $form.Controls.Add($Button3)
 
