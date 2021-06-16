@@ -85,7 +85,7 @@ $SearchButton = $window.FindName("SearchButton")
 
 #Find the user when the search button is pressed
 $SearchButton.Add_Click({
-    $user = Search-ADAccount -AccountDisabled | FT Name
+    $user = Search-ADAccount -AccountDisabled | Format-Table Name
     If($user){
         $OutputTB.Text = $user | Out-String
         }
