@@ -4,7 +4,6 @@ Add-Type -AssemblyName System.Drawing
 #Losse onderdelen
 $Icon = [system.drawing.icon]::ExtractAssociatedIcon($PSHOME + "\powershell.exe") #https://www.fourtop.nl/hubfs/cropped-FourTop-favicon-32x32.png
 
-
 #Form Layout
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'Servicedesk Assistance Tool'
