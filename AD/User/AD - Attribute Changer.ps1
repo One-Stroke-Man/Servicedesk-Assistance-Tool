@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-﻿#Add the WPF type
+#Add the WPF type
 Add-Type -AssemblyName PresentationFramework
-=======
-﻿Add-Type -AssemblyName PresentationFramework
->>>>>>> c4d9ee4fc06e329b6053f36c479eae3f9ea16730
+===
+Add-Type -AssemblyName PresentationFramework
 
 #region XAML
 [xml]$xaml = @"
