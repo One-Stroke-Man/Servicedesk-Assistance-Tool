@@ -1,75 +1,137 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
-Add-Type -AssemblyName System.Drawing
+﻿Add-Type -AssemblyName PresentationFramework
 
-#Losse onderdelen
-$Icon = [system.drawing.icon]::ExtractAssociatedIcon($PSHOME + "\powershell.exe")
+#region XAML
+[xml]$xaml = @"
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="Window"
+    Title="Servicedesk Assistance Tool"
+    Background = "#1A1246"
+    SizeToContent="WidthAndHeight" >
 
+    <Grid x:Name="Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+      
+        <Button x:Name = "AttributeButton"
+            Content = "Attribute Changer"
+            Width = "150"
+            Grid.Column = "1"
+            Grid.Row = "4"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "UnlockButton"
+            Content = "Unlock AD Account"
+            Width = "150"
+            Grid.Column = "1"
+            Grid.Row = "6"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "EnableButton"
+            Content = "Enable AD Account"
+            Width = "150"
+            Grid.Column = "1"
+            Grid.Row = "8"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "DisableButton"
+            Content = "Disable AD Account"
+            Width = "150"
+            Grid.Column = "1"
+            Grid.Row = "10"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD3Button"
+            Content = "TBD"
+            Width = "150"
+            Grid.Column = "3"
+            Grid.Row = "4"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD4Button"
+            Content = "TBD"
+            Width = "150"
+            Grid.Column = "3"
+            Grid.Row = "6"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD5Button"
+            Content = "TBD"
+            Width = "150"
+            Grid.Column = "3"
+            Grid.Row = "8"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD6Button"
+            Content = "TBD"
+            Width = "150"
+            Grid.Column = "3"
+            Grid.Row = "10"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+    </Grid>
+</Window>
+"@
+#endregion
 
-#Form Layout
-$form = New-Object System.Windows.Forms.Form
-$form.Text = 'Servicedesk Assistance Tool'
-$form.Size = New-Object System.Drawing.Size(600,400)
-$form.StartPosition = 'CenterScreen'
-$form.AutoSize = $True
-$form.AutoSizeMode = "GrowOnly"
-$form.BackColor = "#1A1246"
-$form.Icon = $Icon
+#region Variables
 
-#Button Attribute Changer
-$Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Point(35,30)
-$Button.Size = New-Object System.Drawing.Size(150,46)
-$Button.Text = 'Attribute Changer'
-$Button.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button
-$form.Controls.Add($Button)
+#Collect the xaml
+$reader = (New-Object System.Xml.XmlNodeReader $xaml)
+$window = [Windows.Markup.XamlReader]::Load($reader)
 
-#Button Unlock Account
-$Button1 = New-Object System.Windows.Forms.Button
-$Button1.Location = New-Object System.Drawing.Point(35,75)
-$Button1.Size = New-Object System.Drawing.Size(150,46)
-$Button1.Text = 'Unlock AD Account'
-$Button1.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button1.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button1
-$form.Controls.Add($Button1)
-
-#Button Enable Account
-$Button2 = New-Object System.Windows.Forms.Button
-$Button2.Location = New-Object System.Drawing.Point(35,120)
-$Button2.Size = New-Object System.Drawing.Size(150,46)
-$Button2.Text = 'Enable AD Account'
-$Button2.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button2.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button2
-$form.Controls.Add($Button2)
-
-#Button Enable Account
-$Button3 = New-Object System.Windows.Forms.Button
-$Button3.Location = New-Object System.Drawing.Point(35,165)
-$Button3.Size = New-Object System.Drawing.Size(150,46)
-$Button3.Text = 'Disable AD Account'
-$Button3.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button3.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button3
-$form.Controls.Add($Button3)
+#Grab tho controls into variables
+$AttributeButton = $window.FindName("AttributeButton")
+$UnlockButton = $window.FindName("UnlockButton")
+$EnableButton = $window.FindName("EnableButton")
+$DisableButton = $window.FindName("DisableButton")
 
 #Button Section
-$Button.Add_Click({
+$AttributeButton.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Attribute%20Changer.ps1").Content
 })
 
-$Button1.Add_Click({
+$UnlockButton.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Unlock%20AD%20User.ps1").Content
 })
 
-$Button2.Add_Click({
+$EnableButton.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Enable%20AD%20User.ps1").Content
 })
 
-$Button3.Add_Click({
+$DisableButton.Add_Click({
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Disable%20AD%20User.ps1").Content
 })
 
-$form.ShowDialog()
+$window.ShowDialog()
