@@ -1,75 +1,157 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
-Add-Type -AssemblyName System.Drawing
+﻿Add-Type -AssemblyName PresentationFramework
 
-#Losse onderdelen
-$Icon = [system.drawing.icon]::ExtractAssociatedIcon($PSHOME + "\powershell.exe")
+#region XAML
+[xml]$xaml = @"
+<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    x:Name="Window"
+    Title="Servicedesk Assistance Tool"
+    Background = "#1A1246"
+    SizeToContent="WidthAndHeight" >
 
+    <Grid x:Name="Grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="23"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+      
+        <Button x:Name = "TBDButton"
+            Content = "AD Tools"
+            Width = "100"
+            Grid.Column = "1"
+            Grid.Row = "4"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD2Button"
+            Content = "Network Tools"
+            Width = "100"
+            Grid.Column = "1"
+            Grid.Row = "6"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD3Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "1"
+            Grid.Row = "8"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD4Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "1"
+            Grid.Row = "10"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD5Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "3"
+            Grid.Row = "4"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD6Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "3"
+            Grid.Row = "6"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD7Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "3"
+            Grid.Row = "8"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+        <Button x:Name = "TBD8Button"
+            Content = "TBD"
+            Width = "100"
+            Grid.Column = "3"
+            Grid.Row = "10"
+            Foreground = "#FFFFFF"
+            Background = "#00a151"
+        />
+    </Grid>
+</Window>
+"@
+#endregion
 
-#Form Layout
-$form = New-Object System.Windows.Forms.Form
-$form.Text = 'Servicedesk Assistance Tool'
-$form.Size = New-Object System.Drawing.Size(600,400)
-$form.StartPosition = 'CenterScreen'
-$form.AutoSize = $True
-$form.AutoSizeMode = "GrowOnly"
-$form.BackColor = "#1A1246"
-$form.Icon = $Icon
+#region Variables
 
-#TBD
-$Button = New-Object System.Windows.Forms.Button
-$Button.Location = New-Object System.Drawing.Point(35,30)
-$Button.Size = New-Object System.Drawing.Size(150,46)
-$Button.Text = ''
-$Button.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button
-$form.Controls.Add($Button)
+#Collect the xaml
+$reader = (New-Object System.Xml.XmlNodeReader $xaml)
+$window = [Windows.Markup.XamlReader]::Load($reader)
 
-#TBD
-$Button1 = New-Object System.Windows.Forms.Button
-$Button1.Location = New-Object System.Drawing.Point(35,75)
-$Button1.Size = New-Object System.Drawing.Size(150,46)
-$Button1.Text = ''
-$Button1.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button1.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button1
-$form.Controls.Add($Button1)
-
-#TBD
-$Button2 = New-Object System.Windows.Forms.Button
-$Button2.Location = New-Object System.Drawing.Point(35,120)
-$Button2.Size = New-Object System.Drawing.Size(150,46)
-$Button2.Text = ''
-$Button2.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button2.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button2
-$form.Controls.Add($Button2)
-
-#TBD
-$Button3 = New-Object System.Windows.Forms.Button
-$Button3.Location = New-Object System.Drawing.Point(35,165)
-$Button3.Size = New-Object System.Drawing.Size(150,46)
-$Button3.Text = ''
-$Button3.DialogResult = [System.Windows.Forms.DialogResult]::OK
-$Button3.BackColor = "#FFFFFF"
-$form.AcceptButton = $Button3
-$form.Controls.Add($Button3)
+#Grab tho controls into variables
+$TBDButton = $window.FindName("$TBDButton")
+$TBD2Button = $window.FindName("$TBD2Button")
+$TBD3Button = $window.FindName("$TBD3Button")
+$TBD4Button = $window.FindName("$TBD4Button")
+$TBD5Button = $window.FindName("$TBD5Button")
+$TBD6Button = $window.FindName("$TBD6Button")
+$TBD7Button = $window.FindName("$TBD7Button")
+$TBD8Button = $window.FindName("$TBD8Button")
 
 #Button Section
-$Button.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Attribute%20Changer.ps1").Content
+$TBDButton.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
 })
 
-$Button1.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Unlock%20AD%20User.ps1").Content
+$TBD2Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
 })
 
-$Button2.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Enable%20AD%20User.ps1").Content
+$TBD3Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
 })
 
-$Button3.Add_Click({
-     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Disable%20AD%20User.ps1").Content
+$TBD4Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
 })
 
-$form.ShowDialog()
+$TBD5Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
+})
+
+$TBD6Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
+})
+
+$TBD7Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
+})
+
+$TBD8Button.Add_Click({
+     Invoke-expression (invoke-webrequest -uri "TBD").Content
+})
+
+$window.ShowDialog()
