@@ -45,7 +45,7 @@
             Background = "#00a151"
         />
         <Button x:Name = "TBD2Button"
-            Content = "TBD2"
+            Content = "TBD"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "6"
