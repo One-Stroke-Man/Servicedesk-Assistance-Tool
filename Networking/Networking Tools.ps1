@@ -37,7 +37,7 @@
         </Grid.ColumnDefinitions>
       
         <Button x:Name = "TBDButton"
-            Content = "AD Tools"
+            Content = "TBD"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "4"
@@ -45,7 +45,7 @@
             Background = "#00a151"
         />
         <Button x:Name = "TBD2Button"
-            Content = "Network Tools"
+            Content = "TBD2"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "6"
