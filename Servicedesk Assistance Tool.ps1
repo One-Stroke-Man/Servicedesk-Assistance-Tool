@@ -117,10 +117,13 @@ $NetworkButton = $window.FindName("NetworkButton")
 
 #Button Section
 $ADButton.Add_Click({
+        $window.Close()
     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/AD%20Tools.ps1").Content
+
 })
 
 $NetworkButton.Add_Click({
+        $window.Close()
     Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/Networking/Networking%20Tools.ps1").Content
 })
 
