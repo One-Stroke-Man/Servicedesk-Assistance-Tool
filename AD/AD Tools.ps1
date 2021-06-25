@@ -119,18 +119,22 @@ $DisableButton = $window.FindName("DisableButton")
 
 #Button Section
 $AttributeButton.Add_Click({
+        $window.Close()
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Attribute%20Changer.ps1").Content
 })
 
 $UnlockButton.Add_Click({
+        $window.Close()
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Unlock%20AD%20User.ps1").Content
 })
 
 $EnableButton.Add_Click({
+        $window.Close()
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Enable%20AD%20User.ps1").Content
 })
 
 $DisableButton.Add_Click({
+        $window.Close()
      Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/User/AD%20-%20Disable%20AD%20User.ps1").Content
 })
 
