@@ -1,4 +1,4 @@
-﻿Add-Type -AssemblyName PresentationFramework
+Add-Type -AssemblyName PresentationFramework
 
 #region XAML
 [xml]$xaml = @"
@@ -36,31 +36,31 @@
             <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
       
-        <Button x:Name = "ADButton"
-            Content = "AD Tools"
+        <Button x:Name = "LoginButton"
+            Content = "Login Exchange"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "4"
             Foreground = "#FFFFFF"
             Background = "#00a151"
         />
-        <Button x:Name = "NetworkButton"
-            Content = "Network Tools"
+        <Button x:Name = "SharedButton"
+            Content = "Regular -> Shared"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "6"
             Foreground = "#FFFFFF"
             Background = "#00a151"
         />
-        <Button x:Name = "M365Button"
-            Content = "M365"
+        <Button x:Name = "RegularButton"
+            Content = "Shared -> Regular"
             Width = "100"
             Grid.Column = "1"
             Grid.Row = "8"
             Foreground = "#FFFFFF"
             Background = "#00a151"
         />
-        <Button x:Name = "TBD1Button"
+        <Button x:Name = "TBD2Button"
             Content = "TBD"
             Width = "100"
             Grid.Column = "1"
@@ -112,24 +112,6 @@ $reader = (New-Object System.Xml.XmlNodeReader $xaml)
 $window = [Windows.Markup.XamlReader]::Load($reader)
 
 #Grab tho controls into variables
-$ADButton = $window.FindName("ADButton")
-$NetworkButton = $window.FindName("NetworkButton")
 
-#Button Section
-$ADButton.Add_Click({
-        $window.Close()
-    Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/AD/AD%20Tools.ps1").Content
-
-})
-
-$NetworkButton.Add_Click({
-        $window.Close()
-    Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/Networking/Networking%20Tools.ps1").Content
-})
-
-$M365Button.Add_Click({
-    $window.Close()
-Invoke-expression (invoke-webrequest -uri "https://raw.githubusercontent.com/One-Stroke-Man/Servicedesk-Assistance-Tool/main/Networking/Networking%20Tools.ps1").Content
-})
 
 $window.ShowDialog()
